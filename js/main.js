@@ -48,7 +48,7 @@ const buttonsFunction = () => {
     let onHold = document.querySelectorAll(".onHold");
     let ready = document.querySelectorAll(".ready");
 
-document.querySelectorAll(".onHold").forEach(article => {
+onHold.forEach(article => {
     let span_task = article.querySelector(".span_task");
     let check = article.querySelector(".check");
     let trashcan = article.querySelector(".trashcan");
@@ -57,13 +57,32 @@ document.querySelectorAll(".onHold").forEach(article => {
         await postNewStatus(span_task.textContent);
         await deleteTask(article.id);
         main.innerHTML = await allTasks(await allData());
+        buttonsFunction();
     })
     trashcan.addEventListener('click', async e => {
         await deleteTask(article.id);
         main.innerHTML = await allTasks(await allData());
+        buttonsFunction();
     })
 })
+///////
+ready.forEach(article => {
+    let trashcan = article.querySelector(".trashcan");
+
+    trashcan.addEventListener('click', async e => {
+        await deleteTask(article.id);
+        main.innerHTML = await allTasks(await allData());
+        buttonsFunction();
+    })
+})
+
+
+
 }
-buttonsFunction();
 //////////////////////////////////////////////////////
+
+
+buttonsFunction();
+
+
 });
