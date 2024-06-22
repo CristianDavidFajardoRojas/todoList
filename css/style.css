@@ -121,6 +121,14 @@ main {
     justify-content: space-between;
     position: relative;
     letter-spacing: 0.1rem;
+    text-overflow: ellipsis;
+}
+
+.span_task {
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    max-width: calc(100% - 50px); 
 }
 
 .onHold .div_2images {
@@ -162,6 +170,14 @@ main {
     position: relative;
     letter-spacing: 0.1rem;
     filter: opacity(0.6);
+    text-overflow: ellipsis;
+}
+
+del {
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    max-width: calc(100% - 50px);
 }
 
 .ready .div_2images {
