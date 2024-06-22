@@ -1,7 +1,9 @@
 import { allData } from "./modules/api.js";
 import { allTasks } from "./components/tasks.js";
 
-const main = document.querySelector(".main")
+const main = document.querySelector(".main");
+const input = document.querySelector("#input");
+const button = document.querySelector("#button");
 
 document.addEventListener("DOMContentLoaded", async e => {
 ////////////////////////////////////////////////////////
@@ -25,4 +27,17 @@ setInterval(updateDateTime, 1000);
 ////////////////////////////////////////////////////////
 
 main.innerHTML = await allTasks(await allData());
+
+let onHold = document.querySelectorAll(".onHold");
+let ready = document.querySelectorAll(".ready");
+
+button.addEventListener('click', a => {
+    
+    
+
+
+
+
+
+    });
 });
