@@ -1,3 +1,10 @@
+import { allData } from "./modules/api.js";
+import { allTasks } from "./components/tasks.js";
+
+const main = document.querySelector(".main")
+
+document.addEventListener("DOMContentLoaded", async e => {
+////////////////////////////////////////////////////////
 const dateTimeParagraph = document.querySelector('.fecha');
 function updateDateTime() {
     const now = new Date();
@@ -13,6 +20,9 @@ function updateDateTime() {
 
     dateTimeParagraph.textContent = formattedDateTime;
 }
-
 updateDateTime();
 setInterval(updateDateTime, 1000);
+////////////////////////////////////////////////////////
+
+main.innerHTML = await allTasks(await allData());
+});
