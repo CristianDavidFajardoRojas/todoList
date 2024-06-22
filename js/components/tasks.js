@@ -5,7 +5,7 @@ export const allTasks = async data => {
     data.reverse().forEach(dict => {
         if(dict.status == "On hold"){
             plantilla += /*html*/ `
-        <article class = "onHold">
+        <article id="${dict.id}" class = "onHold">
             <span class="span_task">${dict.task}</span>
             <div class="div_2images">
                 <div class="check">
@@ -19,7 +19,7 @@ export const allTasks = async data => {
             `;
         } else {
             plantillaReady += /*html*/`
-            <article class="ready">
+        <article id="${dict.id}" class="ready">
             <del><span class="span_task">${dict.task}</span></del>
             <div class="div_2images">
                 <div>

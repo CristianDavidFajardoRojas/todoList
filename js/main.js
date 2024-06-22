@@ -1,6 +1,7 @@
 import { allData } from "./modules/api.js";
 import { allTasks } from "./components/tasks.js";
-import { postNewTask } from "./modules/post.js";
+import { postNewTask, postNewStatus } from "./modules/post.js";
+import { deleteTask } from "./modules/delete.js";
 
 const main = document.querySelector(".main");
 const input = document.querySelector("#input");
@@ -36,30 +37,33 @@ button.addEventListener('click', async a => {
     if(input.value !== "") await postNewTask(input.value);
     input.value = '';
     main.innerHTML = await allTasks(await allData());
+    buttonsFunction();
     });
 //////////////////////////////////////////////////////
 
 
 
-let onHold = document.querySelectorAll(".onHold");
-let ready = document.querySelectorAll(".ready");
-
-
-
 //////////////////////////////////////////////////////
-onHold.forEach(article => {
+const buttonsFunction = () => {
+    let onHold = document.querySelectorAll(".onHold");
+    let ready = document.querySelectorAll(".ready");
+
+document.querySelectorAll(".onHold").forEach(article => {
     let span_task = article.querySelector(".span_task");
     let check = article.querySelector(".check");
     let trashcan = article.querySelector(".trashcan");
 
-    check.addEventListener('click', e => {
-        console.log(span_task.textContent);
+    check.addEventListener('click', async e => {
+        await postNewStatus(span_task.textContent);
+        await deleteTask(article.id);
+        main.innerHTML = await allTasks(await allData());
     })
-    trashcan.addEventListener('click', e => {
-        console.log(span_task.textContent);
+    trashcan.addEventListener('click', async e => {
+        await deleteTask(article.id);
+        main.innerHTML = await allTasks(await allData());
     })
 })
+}
+buttonsFunction();
 //////////////////////////////////////////////////////
-
-
 });
