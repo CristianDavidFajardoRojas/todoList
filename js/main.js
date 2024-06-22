@@ -84,5 +84,28 @@ ready.forEach(article => {
 
 buttonsFunction();
 
+/////////////
 
+let scrolledToReady = false;
+const scrollButton = document.getElementById('scrollButton');
+
+scrollButton.addEventListener('click', () => {
+    if (scrolledToReady) {
+        scrollButton.src = "https://www.svgrepo.com/show/514107/down-round.svg"
+        main.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    } else {
+        const firstReady = document.querySelector('.ready');
+        if (firstReady) {
+            scrollButton.src = "https://www.svgrepo.com/show/514274/up-round.svg"
+            main.scrollTo({
+                top: firstReady.offsetTop - main.offsetTop,
+                behavior: 'smooth'
+            });
+        }
+    }
+    scrolledToReady = !scrolledToReady;
+});
 });
