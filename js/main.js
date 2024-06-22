@@ -1,5 +1,6 @@
 import { allData } from "./modules/api.js";
 import { allTasks } from "./components/tasks.js";
+import { postNewTask } from "./modules/post.js";
 
 const main = document.querySelector(".main");
 const input = document.querySelector("#input");
@@ -26,18 +27,24 @@ updateDateTime();
 setInterval(updateDateTime, 1000);
 ////////////////////////////////////////////////////////
 
+
+
+
 main.innerHTML = await allTasks(await allData());
 
 let onHold = document.querySelectorAll(".onHold");
 let ready = document.querySelectorAll(".ready");
 
-button.addEventListener('click', a => {
-    
-    
 
 
 
-
-
+//////////////////////////////////////////////////////
+button.addEventListener('click', async a => {
+    if(input.value !== "") await postNewTask(input.value);
+    input.value = '';
+    main.innerHTML = await allTasks(await allData());
     });
+//////////////////////////////////////////////////////
+
+
 });
