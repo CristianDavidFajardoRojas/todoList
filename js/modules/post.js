@@ -8,7 +8,7 @@ export const postNewTask = async task => {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(newTask)
     };
-    await fetch("https://66619c2c63e6a0189feab680.mockapi.io/Tasks", config)
+    await fetch("https://6674179975872d0e0a950e53.mockapi.io/todoList", config)
 }
 
 export const postNewStatus = async task => {
@@ -21,5 +21,5 @@ export const postNewStatus = async task => {
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(newTask)
     };
-    await fetch("https://66619c2c63e6a0189feab680.mockapi.io/Tasks", config)
+    await fetch("https://6674179975872d0e0a950e53.mockapi.io/todoList", config)
 }

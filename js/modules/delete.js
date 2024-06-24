@@ -3,5 +3,5 @@ export const deleteTask = async id => {
         method: "DELETE",
         headers: {"Content-Type": "application/json"},
     };
-    await fetch(`https://66619c2c63e6a0189feab680.mockapi.io/Tasks/${id}`, config)
+    await fetch(`https://6674179975872d0e0a950e53.mockapi.io/todoList/${id}`, config)
 }
