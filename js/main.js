@@ -2,6 +2,7 @@ import { allData } from "./modules/api.js";
 import { allTasks } from "./components/tasks.js";
 import { postNewTask, postNewStatus } from "./modules/post.js";
 import { deleteTask } from "./modules/delete.js";
+import { updateToOnHold, updateToReady } from "./modules/put.js";
 
 const main = document.querySelector(".main");
 const input = document.querySelector("#input");
@@ -54,8 +55,7 @@ onHold.forEach(article => {
     let trashcan = article.querySelector(".trashcan");
 
     check.addEventListener('click', async e => {
-        await postNewStatus(span_task.textContent);
-        await deleteTask(article.id);
+        await updateToReady(article.id, span_task.textContent);
         main.innerHTML = await allTasks(await allData());
         buttonsFunction();
     })
@@ -67,7 +67,15 @@ onHold.forEach(article => {
 })
 ///////
 ready.forEach(article => {
+    let span_task = article.querySelector(".span_task");
+    let returnTask = article.querySelector(".returnTask");
     let trashcan = article.querySelector(".trashcan");
+
+    returnTask.addEventListener('click', async e => {
+        await updateToOnHold(article.id, span_task.textContent);
+        main.innerHTML = await allTasks(await allData());
+        buttonsFunction();
+    })
 
     trashcan.addEventListener('click', async e => {
         await deleteTask(article.id);

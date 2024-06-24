@@ -22,8 +22,8 @@ export const allTasks = async data => {
         <article id="${dict.id}" class="ready">
             <del><span class="span_task">${dict.task}</span></del>
             <div class="div_2images">
-                <div>
-                    <img src="https://www.svgrepo.com/show/500802/check.svg">
+                <div class="returnTask">
+                    <img src="https://www.svgrepo.com/show/454010/return.svg">
                 </div>
                 <div class="trashcan">
                     <img src="https://www.svgrepo.com/show/491509/trash.svg">
