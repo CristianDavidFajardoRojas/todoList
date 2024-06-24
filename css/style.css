@@ -30,7 +30,7 @@ header {
     gap: 30px;
 }
 
-header > h3 {
+.container_h3 > h3 {
     overflow: hidden;     
     letter-spacing: 0.15rem;
     font-size: calc(4rem + 2vw);
@@ -38,7 +38,7 @@ header > h3 {
     max-width: 600px;
     white-space: nowrap;
     color: rgb(253, 224, 222);
-    animation: blink 0.7s infinite;
+    animation: blink 0.7s infinite, escribir 4s steps(40, end) 0s forwards; /* Combina las dos animaciones */
 }
 
 @keyframes blink {
@@ -50,6 +50,15 @@ header > h3 {
     }
     100% {
         border: 3px solid transparent;
+    }
+}
+
+@keyframes escribir {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%
     }
 }
 
